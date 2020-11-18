@@ -3,7 +3,7 @@
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/python-data-analysis/zipball/main)&nbsp;
 [![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/python-data-analysis/tarball/main)&nbsp;
 ![download size](https://img.shields.io/github/repo-size/tuftsdatalab/python-data-analysis?label=download%20size)&nbsp;
-![last updated](https://img.shields.io/github/last-commit/tuftsdatalab/intro-numpy?label=last%20updated)
+![last updated](https://img.shields.io/github/last-commit/tuftsdatalab/python-data-analysis?label=last%20updated)
 
 **A Tufts University Data Lab Workshop**\
 Written by Uku-Kaspar Uustalu
