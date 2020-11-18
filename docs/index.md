@@ -38,7 +38,7 @@ The following assumes that you have [Anaconda](https://www.anaconda.com/products
 
 Anaconda installation instructions: [docs.anaconda.com/anaconda/install](https://docs.anaconda.com/anaconda/install/){:target="_blank"}
 
-1. Click on the [**Download Zip**](https://github.com/tuftsdatalab/python-data-analysis/zipball/main) or [**Download TarGz**](https://github.com/tuftsdatalab/python-data-analysis/zipball/main) button above to download an archive containing the workshop materials.
+1. Click on the [**Download Zip**](https://github.com/tuftsdatalab/python-data-analysis/zipball/main) or [**Download TarGz**](https://github.com/tuftsdatalab/python-data-analysis/tarball/main) button above to download an archive containing the workshop materials.
 2. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
 3. Launch JupyterLab either from the **command line** or via **Anaconda Navigator**.
     - From the **command line**:
