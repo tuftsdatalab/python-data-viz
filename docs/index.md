@@ -1,5 +1,5 @@
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/python-data-analysis/main?urlpath=lab/tree/python-data-analysis.ipynb){:target="_blank"}&nbsp;
-[![View on Github](https://tuftsdatalab.github.io/badges/github.svg)](https://github.com/tuftsdatalab/python-data-analysis){:target="_blank"}&nbsp;
+[![View on Github](https://tuftsdatalab.github.io/badges/github.svg)](https://github.com/tuftsdatalab/python-data-analysis)&nbsp;
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/python-data-analysis/zipball/main)&nbsp;
 [![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/python-data-analysis/tarball/main)&nbsp;
 ![download size](https://img.shields.io/github/repo-size/tuftsdatalab/python-data-analysis?label=download%20size)&nbsp;
@@ -8,21 +8,21 @@
 **A Tufts University Data Lab Workshop**\
 Written by Uku-Kaspar Uustalu
 
-[![datalab.tufts.edu](https://tuftsdatalab.github.io/badges/datalab.svg)](https://sites.tufts.edu/datalab){:target="_blank"}&nbsp;
-[![@TuftsDataLab](https://tuftsdatalab.github.io/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab){:target="_blank"}
+[![datalab.tufts.edu](https://tuftsdatalab.github.io/badges/datalab.svg)](https://sites.tufts.edu/datalab)&nbsp;
+[![@TuftsDataLab](https://tuftsdatalab.github.io/badges/twitter.svg)](https://twitter.com/intent/follow?screen_name=tuftsdatalab)
 
-Python resources: [go.tufts.edu/python](https://sites.tufts.edu/datalab/python/){:target="_blank"}\
+Python resources: [go.tufts.edu/python](https://sites.tufts.edu/datalab/python/)\
 Questions: <datalab-support@elist.tufts.edu>\
 Feedback: <uku-kaspar.uustalu@tufts.edu>
 
-Workshop slides: [tufts.box.com/v/python-data-analysis](https://tufts.box.com/v/numpy-slides){:target="_blank"}\
-Live offerings: [go.tufts.edu/workshops](https://sites.tufts.edu/datalab/workshops/){:target="_blank"}
+Workshop slides: [tufts.box.com/v/python-data-analysis](https://tufts.box.com/v/numpy-slides)\
+Live offerings: [go.tufts.edu/workshops](https://sites.tufts.edu/datalab/workshops/)
 
 ---
 ## Running the Workshop using Binder (virtual JupyterLab) {#binder}
 [![Launch Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tuftsdatalab/python-data-analysis/main?urlpath=lab/tree/python-data-analysis.ipynb){:target="_blank"}
 
-Follow the instructions below to launch the notebook in an online version of the [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/){:target="_blank"} interface pre-configured for this workshop.
+You can launch an online [Binder](https://mybinder.org/) instance with a [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) interface pre-configured for this workshop as follows:
 
 1. Click on the [**Launch Binder**](https://mybinder.org/v2/gh/tuftsdatalab/python-data-analysis/main?urlpath=lab/tree/python-data-analysis.ipynb){:target="_blank"} button above.
 2. A Binder instance will launch in a new tab with the message *Starting Repository*.
@@ -34,9 +34,7 @@ Follow the instructions below to launch the notebook in an online version of the
 [![Download Zip](https://tuftsdatalab.github.io/badges/zip.svg)](https://github.com/tuftsdatalab/python-data-analysis/zipball/main)&nbsp;
 [![Download TarGz](https://tuftsdatalab.github.io/badges/tgz.svg)](https://github.com/tuftsdatalab/python-data-analysis/tarball/main)
 
-The following assumes that you have [Anaconda](https://www.anaconda.com/products/individual){:target="_blank"} installed on your computer along with [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/){:target="_blank"}, [NumPy](https://numpy.org/){:target="_blank"}, [Pandas](https://pandas.pydata.org/){:target="_blank"}, [Matplotlib](https://matplotlib.org/){:target="_blank"}, and [Seaborn](https://seaborn.pydata.org/){:target="_blank"}. These packages are all included in Anaconda by default, so there is no need to individually install them if you have an unmodified Anaconda installation.
-
-Anaconda installation instructions: [docs.anaconda.com/anaconda/install](https://docs.anaconda.com/anaconda/install/){:target="_blank"}
+If you have Anaconda or Miniconda installed, you can launch the workshop notebook locally as follows:
 
 1. Click on the [**Download Zip**](https://github.com/tuftsdatalab/python-data-analysis/zipball/main) or [**Download TarGz**](https://github.com/tuftsdatalab/python-data-analysis/tarball/main) button above to download an archive containing the workshop materials.
 2. Extract the contents of the downloaded archive to a suitable location and rename the extracted folder if desired.
@@ -45,7 +43,11 @@ Anaconda installation instructions: [docs.anaconda.com/anaconda/install](https:/
         1. Launch **Terminal** (*macOS/Linux*) or the **Anaconda PowerShell Prompt** (*Windows*).
             - **Windows**: *Start > Anaconda3 > Anaconda PowerShell Prompt*
             - **macOS**: *Applications > Utilities > Terminal*
-        2. Type `jupyter lab` and press **Enter/Return**.
+        2. *Optional:* If you are using Miniconda or have modified your base Anaconda environment, create and activate a new environment for this workshop using the included **environment.yml** file as follows:
+            1. Navigate to the folder containing the extracted workshop materials from within the console.
+            2. Create a new environment for the workshop: `conda env create -f environment.yml`
+            3. Activate the workshop environment: `conda activate python-data-analysis`
+        3. Type `jupyter lab` and press **Enter/Return** to launch JupyterLab.
     - Using **Anaconda Navigator**:
         1. Launch Anaconda Navigator via the Start Menu (*Windows*) or from Applications (*macOS*).
             - **Windows**: *Start > Anaconda3 > Anaconda Navigator*
