@@ -1,0 +1,45 @@
+name: mirror-content
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  mirror-to-binder-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - uses: tuftsrt/branch-manager@develop
+        with:
+          destination-branch: binder
+          clear-destination: "true"
+          copy: |
+            binder/|.binder
+            tutorial/|
+          replace: |
+            GH_ACTIONS_DATE|${{ steps.date.outputs.date }}|*.ipynb
+
+  mirror-to-tutorial-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - uses: tuftsrt/branch-manager@develop
+        with:
+          destination-branch: tutorial
+          clear-destination: "true"
+          copy: |
+            binder/environment.yml|environment.yml
+            tutorial/|
+          replace: |
+            GH_ACTIONS_DATE|${{ steps.date.outputs.date }}|*.ipynb
