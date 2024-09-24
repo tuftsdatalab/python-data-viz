@@ -1,0 +1,29 @@
+name: publish-notebook
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  publish-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mamba-org/provision-with-micromamba@main
+        with:
+          environment-file: ./binder/environment.yml
+      - name: run-nbconvert
+        shell: bash -l {0}
+        run: |
+          sed -i "s/GH_ACTIONS_DATE/$(date '+%Y-%m-%d')/g" \
+            ./tutorial/${{ github.event.repository.name }}.ipynb
+          mkdir --parents ./docs
+          cp -r ./tutorial/data ./docs
+          jupyter nbconvert --execute --allow-errors --to=html \
+            --output=index.html --output-dir=./docs \
+            ./tutorial/${{ github.event.repository.name }}.ipynb
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
