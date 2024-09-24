@@ -1,0 +1,11 @@
+name: python-data-viz
+channels:
+  - conda-forge
+dependencies:
+  - hvplot
+  - jupyterlab
+  - matplotlib
+  - pandas
+  - plotly
+  - python
+  - seaborn
