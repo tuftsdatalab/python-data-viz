@@ -1,4 +1,4 @@
-Python for Data Analysis and Visualization
+# Python for Data Analysis and Visualization
 
 Static HTML Preview of Notebook: https://tuftsdatalab.github.io/python-data-viz
 
