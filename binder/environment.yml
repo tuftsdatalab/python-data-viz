@@ -2,9 +2,10 @@ name: python-data-analysis
 channels:
   - conda-forge
 dependencies:
-  - python=3.*
-  - jupyterlab=3.*
-  - numpy
-  - pandas
+  - hvplot
+  - jupyterlab
   - matplotlib
+  - pandas
+  - plotly
+  - python
   - seaborn
