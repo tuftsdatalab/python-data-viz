@@ -1,4 +1,4 @@
-name: python-data-analysis
+name: python-data-viz
 channels:
   - conda-forge
 dependencies:
