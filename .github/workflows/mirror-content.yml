@@ -33,27 +33,6 @@ jobs:
           replace: |
             GH_ACTIONS_DATE|${{ needs.get-date.outputs.date }}|*.ipynb
 
-  mirror-to-colab-branch:
-    runs-on: ubuntu-latest
-    needs: get-date
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - id: get-find-replace
-        run: |
-          echo "find=$(<./colab/find.txt)" >> $GITHUB_OUTPUT
-          echo "replace=$(<./colab/replace.txt)" >> $GITHUB_OUTPUT
-      - uses: tuftsrt/branch-manager@develop
-        with:
-          destination-branch: colab
-          clear-destination: "true"
-          copy: |
-            tutorial/*.ipynb|
-          replace: |
-            GH_ACTIONS_DATE|${{ needs.get-date.outputs.date }}|*.ipynb
-            ${{ steps.get-find-replace.outputs.find }}|${{ steps.get-find-replace.outputs.replace }}|*.ipynb
-
   mirror-to-data-branch:
     runs-on: ubuntu-latest
     needs: get-date
