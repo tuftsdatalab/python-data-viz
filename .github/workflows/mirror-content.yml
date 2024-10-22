@@ -6,15 +6,23 @@ on:
       - main
 
 jobs:
+
+  get-date:
+    runs-on: ubuntu-latest
+    outputs:
+      date: ${{ steps.date.outputs.date }}
+    steps:
+      - id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
   mirror-to-binder-branch:
     runs-on: ubuntu-latest
+    needs: get-date
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - id: date
-        run: |
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
       - uses: tuftsrt/branch-manager@develop
         with:
           destination-branch: binder
@@ -23,17 +31,50 @@ jobs:
             binder/|.binder
             tutorial/|
           replace: |
-            GH_ACTIONS_DATE|${{ steps.date.outputs.date }}|*.ipynb
+            GH_ACTIONS_DATE|${{ needs.get-date.outputs.date }}|*.ipynb
 
-  mirror-to-tutorial-branch:
+  mirror-to-colab-branch:
     runs-on: ubuntu-latest
+    needs: get-date
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - id: date
+      - id: get-find-replace
         run: |
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "find=$(</colab/find.txt)" >> $GITHUB_OUTPUT
+          echo "replace=$(</colab/replace.txt)" >> $GITHUB_OUTPUT
+      - uses: tuftsrt/branch-manager@develop
+        with:
+          destination-branch: colab
+          clear-destination: "true"
+          copy: |
+            tutorial/*.ipynb|
+          replace: |
+            GH_ACTIONS_DATE|${{ needs.get-date.outputs.date }}|*.ipynb
+            ${{ steps.get-find-replace.outputs.find }}|${{ steps.get-find-replace.outputs.replace }}|*.ipynb
+
+  mirror-to-data-branch:
+    runs-on: ubuntu-latest
+    needs: get-date
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: tuftsrt/branch-manager@develop
+        with:
+          destination-branch: data
+          clear-destination: "true"
+          copy: |
+            tutorial/data/|
+
+  mirror-to-tutorial-branch:
+    runs-on: ubuntu-latest
+    needs: get-date
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: tuftsrt/branch-manager@develop
         with:
           destination-branch: tutorial
@@ -42,4 +83,4 @@ jobs:
             binder/environment.yml|environment.yml
             tutorial/|
           replace: |
-            GH_ACTIONS_DATE|${{ steps.date.outputs.date }}|*.ipynb
+            GH_ACTIONS_DATE|${{ needs.get-date.outputs.date }}|*.ipynb
