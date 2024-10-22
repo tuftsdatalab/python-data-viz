@@ -42,8 +42,8 @@ jobs:
           fetch-depth: 0
       - id: get-find-replace
         run: |
-          echo "find=$(</colab/find.txt)" >> $GITHUB_OUTPUT
-          echo "replace=$(</colab/replace.txt)" >> $GITHUB_OUTPUT
+          echo "find=$(<./colab/find.txt)" >> $GITHUB_OUTPUT
+          echo "replace=$(<./colab/replace.txt)" >> $GITHUB_OUTPUT
       - uses: tuftsrt/branch-manager@develop
         with:
           destination-branch: colab
